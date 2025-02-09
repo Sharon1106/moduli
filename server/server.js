@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const morgan = require("morgan");
 const PORT = process.env.PORT || 5000;
-// const connectDB = require("./config/db")
+const connectDB = require("./config/db")
 
 require("dotenv").config();
 
@@ -18,7 +18,7 @@ app.use(morgan("dev"));
 
 // Connect to the Mongo DB /need to make changes once we have a mongo database
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactcms");
-// connectDB(); 
+connectDB(); 
 
 
 // Basic route
