@@ -5,9 +5,9 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const morgan = require("morgan");
 const connectDB = require("./config/db")
+const authRoutes = require("./routes/authRoutes");
+
 const PORT = process.env.PORT || 5000;
-
-
 const app = express();
 
 // Middleware to parse JSON
@@ -23,7 +23,10 @@ app.get('/', (req, res) => {
   res.send('Moduli API is running!');
 });
 
+// Spotify Authorization Routes
+app.use("/api/auth", authRoutes);
+
 // Start the server
 app.listen(PORT, () => {
-  console.log(`🌎  ==> API Server now listening on http://localhost:${PORT}`);
+  console.log(`🌎 ==> API Server now listening on http://localhost:${PORT}`);
 });
