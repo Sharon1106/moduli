@@ -24,7 +24,8 @@ app.get('/', (req, res) => {
 });
 
 // Spotify Authorization Routes
-app.use("/api/auth", authRoutes);
+app.use("/api/auth", authRoutes)
+console.log('🌎 ==> You can now login to Spotify using: http://localhost:5000/api/auth/login');
 
 // Start the server
 app.listen(PORT, () => {

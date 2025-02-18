@@ -24,7 +24,6 @@ exports.callback = async (req, res) => {
   if (!code) {
     return res.status(400).json({ error: "Authorization code is missing" });
   }
-
   try {
     const tokenResponse = await axios.post(
       "https://accounts.spotify.com/api/token",
@@ -42,7 +41,6 @@ exports.callback = async (req, res) => {
         },
       }
     );
-
     const { access_token, refresh_token } = tokenResponse.data;
     res.json({
       message: "Authentication successful!",
